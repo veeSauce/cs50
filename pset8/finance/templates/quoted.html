@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+<div> A share of {{name}} ({{symbol}}) costs {{price}}. </div>
+
+    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+      <g class="cassetteGroup">
+    <path id="outline" d="M254.5,356v-6.5l-3-3V300.22l3-2.82V186.5a10,10,0,0,1,10-10h271a10,10,0,0,1,10,10V297.9l3,2.82V347l-3,3v5.5a10,10,0,0,1-10,10h-271a10,10,0,0,1-10-10" fill="#F3F5F7" stroke="#B2BDC6" stroke-miterlimit="10" stroke-width="4"/>
+
+        <line x1="276" y1="354.5" x2="524" y2="354.5" fill="none" stroke="#6E6C6A" stroke-miterlimit="10" stroke-width="3"/>
+
+        <circle class="reelLInner" cx="339" cy="264" r="16" fill="none" stroke="#FFF" stroke-miterlimit="10" stroke-width="10"/>
+        <circle class="reelRInner" cx="460" cy="264" r="16" fill="none" stroke="#FFF" stroke-miterlimit="10" stroke-width="10"/>
+
+        <circle class="reelL" cx="339" cy="264" r="48" fill="none" stroke="#6E6C6A" stroke-miterlimit="10" stroke-width="39"/>
+        <circle class="reelR" cx="460" cy="264" r="31" fill="none" stroke="#6E6C6A" stroke-miterlimit="10" stroke-width="5"/>
+        <line class="tapeL" x1="267.2" y1="345" x2="274" y2="251.5" fill="none" stroke="#6E6C6A" stroke-miterlimit="10" stroke-width="3"/>
+        <line  class="tapeR" x1="532.5" y1="343.5" x2="489.5" y2="252.5" fill="none" stroke="#6E6C6A" stroke-miterlimit="10" stroke-width="3"/>
+        <path class="centerReel centreL" d="M351.86,263.47a13.3,13.3,0,0,0-1.55-6.22l1.89-1a15.51,15.51,0,0,0-6-6.19l-1.07,1.86a13.31,13.31,0,0,0-6.14-1.75l.08-2.15a15.66,15.66,0,0,0-8.37,2.09l1.08,1.85a13.54,13.54,0,0,0-4.59,4.44l-1.82-1.15A15.45,15.45,0,0,0,323,263.5v0l2.14,0a13.29,13.29,0,0,0,1.54,6.22l-1.9,1a15.51,15.51,0,0,0,6,6.2l1.08-1.86a13.33,13.33,0,0,0,6.14,1.77l-.09,2.15h.61a15.5,15.5,0,0,0,7.76-2.08l-1.08-1.86a13.48,13.48,0,0,0,4.61-4.43l1.81,1.15a15.42,15.42,0,0,0,2.4-8.28v-.05Z" fill="#6E6C6A"/>
+        <path class="centerReel centreR" d="M473.86,263.47a13.3,13.3,0,0,0-1.55-6.22l1.89-1a15.51,15.51,0,0,0-6-6.19l-1.07,1.86a13.31,13.31,0,0,0-6.14-1.75l.08-2.15a15.66,15.66,0,0,0-8.37,2.09l1.08,1.85a13.54,13.54,0,0,0-4.59,4.44l-1.82-1.15A15.45,15.45,0,0,0,445,263.5v0l2.14,0a13.29,13.29,0,0,0,1.54,6.22l-1.9,1a15.51,15.51,0,0,0,6,6.2l1.08-1.86a13.33,13.33,0,0,0,6.14,1.77l-.09,2.15h.61a15.5,15.5,0,0,0,7.76-2.08l-1.08-1.86a13.48,13.48,0,0,0,4.61-4.43l1.81,1.15a15.42,15.42,0,0,0,2.4-8.28v-.05Z" fill="#6E6C6A"/>
+
+        <circle cx="276.5" cy="345.5" r="9" fill="none" stroke="#B2BDC6" stroke-miterlimit="10" stroke-width="4" />
+        <circle cx="523.5" cy="345.5" r="9" fill="none" stroke="#B2BDC6" stroke-miterlimit="10" stroke-width="4" />
+        <circle cx="330" cy="342" r="7.5" fill="#B2BDC6"/>
+        <circle cx="358.5" cy="338.5" r="6" fill="#B2BDC6"/>
+        <circle cx="441" cy="339" r="6" fill="#B2BDC6"/>
+        <circle cx="469.5" cy="342.5" r="7.5" fill="#B2BDC6"/>
+
+        <polyline id="lip" points="297 366 307.5 316 501.5 316 511 366" fill="none" stroke="#B2BDC6" stroke-miterlimit="10" stroke-width="2" opacity="0.6"/>
+        <line id="designLine" x1="299" y1="208" x2="510" y2="208" fill="none" stroke="#B2BDC6" stroke-miterlimit="10" stroke-width="2" opacity="0.6"/>
+      </g>
+</svg>
+
+<script>
+
+    var xmlns = "http://www.w3.org/2000/svg",
+  xlinkns = "http://www.w3.org/1999/xlink",
+  select = function(s) {
+    return document.querySelector(s);
+  },
+  selectAll = function(s) {
+    return document.querySelectorAll(s);
+  }
+
+
+TweenMax.set('svg', {
+  visibility: 'visible'
+})
+TweenLite.defaultEase = Linear.easeNone;
+
+var tl = new TimelineMax( {repeat: -1, yoyo: true}).timeScale(1);
+tl.to('.reelL', 4, {
+ strokeWidth: 5,
+ attr: {
+  r:31
+ }
+})
+.to('.reelR', 4, {
+ strokeWidth: 39,
+ attr: {
+  r:48
+ }
+}, 0)
+.to('.tapeL', 4, {
+ attr: {
+  x2:'+=36'
+ }
+}, 0)
+.to('.tapeR', 4, {
+ attr: {
+  x2:'+=35.5'
+ }
+}, 0)
+.to('.centerReel', 4, {
+ rotation: '+=1440',
+ transformOrigin: '50% 50%'
+}, 0)
+
+//ScrubGSAPTimeline(tl);
+
+
+</script>
+{% endblock %}

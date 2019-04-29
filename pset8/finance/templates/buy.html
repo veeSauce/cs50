@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/buy" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text" required>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="number" required>
+        </div>
+
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+    {% if showAlert is sameas true %}
+        <script>
+        alert("{{message}}")
+        window.location = '/'
+        </script>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Most Awesome website</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+
+        <!-- TODO -->
+    <div class="form-group">
+    <label for="Name">Name</label>
+    <input type="text" name= "Name" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Enter Name" required>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
+  </div>
+
+
+    Car: <select name= "Car" class= "form-control" id= "select" required="required">
+    <option value="">Select a Car</option>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+    </select><br>
+
+    <small id="gender" class="form-text text-muted">Please enter you genders</small>
+
+   <div class="form-check">
+  <input name= "male" class="form-check-input" type="checkbox" value="male" id="male">
+  <label class="form-check-label" for="defaultCheck1">
+    Male
+  </label>
+</div>
+<div class="form-check">
+  <input name= "female" class="form-check-input" type="checkbox" value="female" id="fee mail">
+  <label class="form-check-label" for="defaultCheck2">fee mails
+  </label>
+</div><br>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block main %}
+    <div class="alert alert-primary border text-center" role="alert"> Bought! </div>
+
+    <table id="table" class="table table-striped" style="width:100%" border="1">
+
+      <thead class="thead-dark"> Hello, {{user}}
+
+        <tr>
+          <th scope="col" name="stockSymbol" value="">Stocks Owned</th>
+          <th scope="col"># of Shares</th>
+          <th scope="col">Current Price</th>
+          <th scope="col">Total Value</th>
+        </tr>
+      </thead>
+
+        {% for stock in stocks %}
+            <tr>
+                <td id=stockName>{{stock["symbol"]}}</td>
+                <td>{{stock["shares"]}}</td>
+                <td>{{stock["price"]}}</td>
+                <td>${{stock["total"]}}</td>
+            </tr>
+
+        {% endfor %}
+
+        <tr>
+                <td>CASH</td>
+                <td></td>
+                <td></td>
+                <td id=cash>${{ cash }}</td>
+        </tr>
+
+        <tr>
+                <td>Total Value</td>
+                <td></td>
+                <td></td>
+                <td id=cash>${{ totalValue }}</td>
+        </tr>
+        <br>
+        </br>
+
+     <tbody>
+
+    <form action="/addCash" method="post" class="input-group">
+        <div class="center-block">
+            <div>Would you like to add some Cash? </div>
+            <input autocomplete="off" name="cash" placeholder="Cash" min="0" type="number">
+        <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit">Submit</button>
+        </span>
+        </div>
+        <br>
+        </br>
+    </form>
+
+{% endblock %}

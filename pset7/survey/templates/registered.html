@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <p>Registered</p>
+
+    <table id="table" class="table table-striped" style="width:100%" border="1">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Car</th>
+        </tr>
+      </thead>
+     <tbody>
+
+
+
+     {% for row in rows %}
+            <tr>
+                <td>{{row["stock"}}</td>
+                <td>{{row["number_of_shares"] }}</td>
+                <td>{{row["current_price"] }}</td>
+                <td>{{row["total_value"] }}</td>
+            </tr>
+        {% endfor %}
+
+
+
+{% endblock %}

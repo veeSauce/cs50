@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block main %}
+
+    <table id="table" class="table table-striped" style="width:100%" border="1">
+
+      <thead class="thead-dark"> Transaction History
+
+        <tr>
+          <th scope="col" name="stockSymbol" value="">Stocks Owned</th>
+          <th scope="col"># of Shares</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+
+        {% for transaction in transactions %}
+            <tr>
+                <td id=stockName>{{transaction["symbol"]}}</td>
+                <td>{{transaction["shares"]}}</td>
+                <td>{{transaction["time"]}}</td>
+            </tr>
+
+        {% endfor %}
+
+
+     <tbody>
+
+
+
+{% endblock %}
